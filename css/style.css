@@ -40,6 +40,41 @@ body {
   gap: 60px;
 }
 
+.lives-container {
+  display: flex;
+  align-items: baseline;
+  gap: 8px; 
+}
+
+#lives {
+   width: 80px;
+   height: 24px;
+   background-image: url("../assets/gardner.png");
+    background-size: 30px 30px;
+    background-repeat: repeat-x;
+    
+}
+#board {
+  position: relative;
+  width: 600px;
+  height: 700px;
+  overflow: hidden;
+}
+
+#player {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  bottom: 10px;   
+  left: 270px;   
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+}
+
+
 button {
 
   padding: 12px 18px;
