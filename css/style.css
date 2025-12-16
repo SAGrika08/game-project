@@ -1,2 +1,61 @@
 
 
+body {
+  font-family: "Press Start 2P", monospace;
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  color: white;
+
+  background-image: url("../assets/sky.jpg");
+  background-size: 500px 500px;
+  background-repeat: repeat;
+ 
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.7);
+
+}
+
+.start-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.game-screen {
+  min-height: 100vh;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 60px;
+}
+
+button {
+
+  padding: 12px 18px;
+  margin-right: 10px;
+  font-family:"Press Start 2P", monospace;
+   color: white;
+   height: 40px;
+
+  background-color: #FF00C7;
+  border: 0px solid white;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 #F99ECF;
+   cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.05);
+}
