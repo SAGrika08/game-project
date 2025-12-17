@@ -26,6 +26,7 @@ const enemySpeed = 2;
 const enemyDrop = 20;
 let enemyTick = 0; 
 let enemyMoveEvery = 10;
+const bombSpeed = 6; 
 
 let bullets = [];
 let bombs = []; 
