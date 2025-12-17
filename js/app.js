@@ -20,6 +20,8 @@ const playerSpeed = 8;
 let leftPressed = false;
 let rightPressed = false;  
 
+const bulletSpeed = 15;
+
 let bullets = [];
 let bombs = []; 
 let enemies = [];
@@ -90,16 +92,17 @@ const shootBullet = () => {
   bullet.className = "bullet";
 
   bullet.style.left = `${playerLeft + 24}px`;
-  bullet.style.bottom = `70px`;
+  bullet.style.top = (board.clientHeight - 70) + "px";
 
   board.appendChild(bullet);
   bullets.push(bullet);
+  console.log("shoot!", gameActive, board.clientHeight);
 };
 
 // move bullets
 const moveBullets = () => {
   bullets = bullets.filter((bullet) => {
-    bullet.style.top = (bullet.offsetTop - 15) + "px";
+    bullet.style.top = (bullet.offsetTop - bulletSpeed) + "px";
 
     if (bullet.offsetTop < 0) {
       bullet.remove();
@@ -130,6 +133,8 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {
     rightPressed = true;
   }
+   if (e.key === "Space" && gameActive) 
+    shootBullet();
 });
 
 document.addEventListener("keyup", (e) => {
@@ -139,8 +144,5 @@ document.addEventListener("keyup", (e) => {
 
   if (e.key === "ArrowRight") {
     rightPressed = false;
-  }
-
-  if (e.key === " " && gameActive) {
   }
 });
