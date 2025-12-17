@@ -128,6 +128,7 @@ const movePlayer = () => {
 
 //shoot bullets
 const shootBullet = () => {
+  if (bullets.length > 0) return;
   const bullet = document.createElement("img");
   bullet.src = "./assets/bullet.png";
   bullet.className = "bullet";
