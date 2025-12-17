@@ -155,6 +155,16 @@ const createEnemies = () => {
   }
 };
 
+// move enemies
+const moveEnemies = () => {
+  
+
+  // if enemies reach board sides, change direction and move down
+  
+
+  // if enemy reaches board bottom, reduce lifes
+};  
+
 // Game Loop
 const gameLoop = () => {
   if (!gameActive) return;
