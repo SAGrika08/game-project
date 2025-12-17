@@ -195,7 +195,11 @@ const gameLoop = () => {
   if (!gameActive) return;
     movePlayer();
     moveBullets();
+    enemyTick++;
+  if (enemyTick >= enemyMoveEvery) {
     moveEnemies();
+    enemyTick = 0;
+  }
 }; 
 
  
