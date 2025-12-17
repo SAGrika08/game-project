@@ -113,7 +113,42 @@ const moveBullets = () => {
 };
 
 // create enemies 
+const createEnemies = () => {
+  enemies.forEach((enemy) => enemy.remove());
+  enemies = [];
 
+  const cols = 7;
+
+  const startX = 40;
+  const startY = 30;
+  const gapX = 80;
+  const gapY = 45;
+
+  const enemyRows = [
+    "./assets/bug.png",
+    "./assets/bee.png",
+    "./assets/bee.png",
+    "./assets/bee.png",
+    "./assets/hopper.png",
+    "./assets/hopper.png",
+  ];
+
+  for (let row = 0; row < enemyRows.length; row++) {
+    const bugSrc = enemyRows[row];
+
+    for (let col = 0; col < cols; col++) {
+      const enemy = document.createElement("img");
+      enemy.src = bugSrc;
+      enemy.className = "enemy";
+
+      enemy.style.left = `${startX + col * gapX}px`;
+      enemy.style.top = `${startY + row * gapY}px`;
+
+      board.appendChild(enemy);
+      enemies.push(enemy);
+    }
+  }
+};
 
 // Game Loop
 const gameLoop = () => {
