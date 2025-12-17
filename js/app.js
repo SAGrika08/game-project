@@ -159,11 +159,11 @@ const createEnemies = () => {
   enemies.forEach((enemy) => enemy.remove());
   enemies = [];
 
-  const cols = 7;
+  const cols = 11;
 
-  const startX = 40;
+  const startX = 20;
   const startY = 30;
-  const gapX = 80;
+  const gapX = 50;
   const gapY = 45;
 
   const enemyRows = [
