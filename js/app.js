@@ -49,6 +49,9 @@ const startGame = () => {
   const goBack = () => {
   gameActive = false;
 
+  playerLeft = 270;
+  player.style.left = `${playerLeft}px`;
+
   gameScreen.style.display = "none";
   startScreen.style.display = "flex";
 };
@@ -74,6 +77,13 @@ const movePlayer = () => {
 
   player.style.left = `${playerLeft}px`;
 };
+
+// Game Loop
+const gameLoop = () => {
+  if (!gameActive) return;
+
+  movePlayer();
+}; 
  
 /*------------------------ Event Listeners ------------------------*/
 startBtn.addEventListener("click", startGame);
@@ -100,6 +110,5 @@ document.addEventListener("keyup", (e) => {
   }
 
   if (e.key === " " && gameActive) {
-    shootBullet();
   }
 });
