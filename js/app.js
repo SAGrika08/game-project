@@ -206,6 +206,17 @@ const moveEnemies = () => {
 };
 
 // move bombs
+const moveBombs = () => {
+  bombs = bombs.filter((bomb) => {
+    bomb.style.top = `${bomb.offsetTop + bombSpeed}px`;
+
+    if (bomb.offsetTop > board.clientHeight) {
+      bomb.remove();
+      return false;
+    }
+    return true;
+  });
+};
 //update score
 //update lives
 //check collisions
