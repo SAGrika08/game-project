@@ -21,6 +21,9 @@ let leftPressed = false;
 let rightPressed = false;  
 
 const bulletSpeed = 15;
+let enemyDirection = 1;
+const enemySpeed = 3; 
+const enemyDrop = 20;
 
 let bullets = [];
 let bombs = []; 
@@ -157,29 +160,32 @@ const createEnemies = () => {
 
 // move enemies
 const moveEnemies = () => {
-   const enemySpeed = 3;   
-   let enemyDirection = 1;
-    enemies.forEach((enemy) => {
+  if (enemies.length === 0) return;
+
+  let hitEdge = false;
+
+  enemies.forEach((enemy) => {
     const left = enemy.offsetLeft;
     const newLeft = left + enemySpeed * enemyDirection;
 
     enemy.style.left = `${newLeft}px`;
-
-  // if enemies reach board sides, change direction and move down
-  if (newLeft <= 0 || newLeft + enemy.offsetWidth >= board.clientWidth) {
+// if enemies reach board sides hit edge, change direction and move down
+    if (newLeft <= 0 || newLeft + enemy.offsetWidth >= board.clientWidth) {
       hitEdge = true;
     }
-    if (hitEdge) {
+  });
+
+  if (hitEdge) {
     enemyDirection = enemyDirection * -1;
-enemies.forEach((enemy) => {
+
+    enemies.forEach((enemy) => {
       const top = enemy.offsetTop;
       enemy.style.top = `${top + enemyDrop}px`;
     });
- }
-    });
+      // if enemy reaches board bottom, reduce lifes
+  }
 };
 
-  // if enemy reaches board bottom, reduce lifes
  
 
 // Game Loop
