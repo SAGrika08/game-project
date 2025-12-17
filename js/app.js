@@ -374,6 +374,8 @@ const gameLoop = () => {
     moveEnemies();
     enemyTick = 0;
   }
+  checkCollisions();
+  checkEnemyHitsBushes(); 
 }; 
 
  
