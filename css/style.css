@@ -74,6 +74,12 @@ body {
   gap: 12px;
 }
 
+.bush {
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  bottom: 100px;
+}
 
 button {
 

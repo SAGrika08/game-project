@@ -39,3 +39,8 @@ const startGame = () => {
   placeBushes();
   gameActive = true;
   };
+
+/*------------------------ Event Listeners ------------------------*/
+startBtn.addEventListener("click", startGame);
+backBtn.addEventListener("click", goBack);
+resetBtn.addEventListener("click", startGame);
