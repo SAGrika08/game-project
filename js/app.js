@@ -43,11 +43,15 @@ const startGame = () => {
   lives = 3;
   placeBushes();
   gameActive = true;
+
+  clearInterval(gameInterval);
+  gameInterval = setInterval(gameLoop, 50);
   };
 
   //Back Button
   const goBack = () => {
   gameActive = false;
+  clearInterval(gameInterval);
 
   playerLeft = 270;
   player.style.left = `${playerLeft}px`;
