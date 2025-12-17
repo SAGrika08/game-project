@@ -48,6 +48,15 @@ const startGame = () => {
   startScreen.style.display = "flex";
 };
 
+//Reset Game 
+ const resetGameState = () => {
+  score = 0;
+  lives = 3;
+  playerLeft = 270;
+  player.style.left = `${playerLeft}px`;
+
+};
+ 
 /*------------------------ Event Listeners ------------------------*/
 startBtn.addEventListener("click", startGame);
 backBtn.addEventListener("click", goBack);
