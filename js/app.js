@@ -11,7 +11,6 @@ const player = document.querySelector("#player");
 const bushes = document.querySelectorAll(".bush");
 
 const scoreEl = document.querySelector("#score");
-const livesEl = document.querySelector("#lives");
 
 /*------------------------ Variables ------------------------*/
 let gameActive = false;
@@ -83,7 +82,7 @@ const startGame = () => {
   bombInterval = setInterval(enemyShoot, 1000);
 
   scoreEl.textContent = "Score: " + score;
-  livesEl.style.width = (lives * 40) + "px";
+  
 };
 
   //Back Button
