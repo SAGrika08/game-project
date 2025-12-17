@@ -22,6 +22,7 @@ let playerLeft = 270;
 const playerSpeed = 8;
 let leftPressed = false;
 let rightPressed = false;  
+let respawning = false;
 
 const bulletSpeed = 15;
 let enemyDirection = 1;
@@ -36,6 +37,7 @@ let bombs = [];
 let enemies = [];
 let score = 0;
 let lives = 3;
+
 
 
 // Bushes
@@ -289,14 +291,28 @@ const loseLife = () => {
   lives -= 1;
   livesEl.style.width = (lives * 40) + "px";
 
+  respawning = true;
+  player.style.display = "none";
+
+  bombs.forEach(b => b.remove());
+  bombs = [];
+
+  bullets.forEach(b => b.remove());
+  bullets = [];
+
   if (lives <= 0) {
     gameActive = false;
     clearInterval(gameInterval);
     clearInterval(bombInterval);
     alert("Game Over!");
     goBack();
+    return;
   }
-};
+  setTimeout(() => {
+    player.style.display = "block";
+    respawning = false;
+  }, 2000);   
+};  
 
 // collision detection
 const isColliding = (a, b) => {
