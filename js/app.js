@@ -15,6 +15,11 @@ let gameActive = false;
 let gameInterval;
 let bombInterval;
 
+let playerLeft = 270;
+const playerSpeed = 8;
+let leftPressed = false;
+let rightPressed = false;  
+
 let bullets = [];
 let bombs = []; 
 let enemies = [];
@@ -56,8 +61,45 @@ const startGame = () => {
   player.style.left = `${playerLeft}px`;
 
 };
+
+//Player Movement
+const movePlayer = () => {
+  if (leftPressed) playerLeft -= playerSpeed;
+  if (rightPressed) playerLeft += playerSpeed;
+
+  const maxLeft = board.clientWidth - player.clientWidth;
+
+  if (playerLeft < 0) playerLeft = 0;
+  if (playerLeft > maxLeft) playerLeft = maxLeft;
+
+  player.style.left = `${playerLeft}px`;
+};
  
 /*------------------------ Event Listeners ------------------------*/
 startBtn.addEventListener("click", startGame);
 backBtn.addEventListener("click", goBack);
 resetBtn.addEventListener("click", startGame);
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft") {
+    leftPressed = true;
+  }
+
+  if (e.key === "ArrowRight") {
+    rightPressed = true;
+  }
+});
+
+document.addEventListener("keyup", (e) => {
+  if (e.key === "ArrowLeft") {
+    leftPressed = false;
+  }
+
+  if (e.key === "ArrowRight") {
+    rightPressed = false;
+  }
+
+  if (e.key === " " && gameActive) {
+    shootBullet();
+  }
+});
