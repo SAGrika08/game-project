@@ -211,6 +211,15 @@ const moveEnemies = () => {
       enemy.style.top = `${top + enemyDrop}px`;
     });
       // if enemy reaches board bottom, reduce lifes
+      const checkEnemyBottom = () => {
+  for (let i = 0; i < enemies.length; i++) {
+    const enemy = enemies[i];
+    if (enemy.offsetTop + enemy.offsetHeight >= board.clientHeight) {
+      loseLife();
+      return;
+    }
+  }
+};
   }
 };
 
