@@ -58,6 +58,7 @@ const startGame = () => {
   score = 0;
   lives = 3;
   placeBushes();
+  setupBushes();
   createEnemies();
   gameActive = true;
 
