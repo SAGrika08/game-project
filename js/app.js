@@ -188,6 +188,29 @@ const moveEnemies = () => {
   }
 };
 
+// enemy bombs
+  const enemyShoot = () => {
+  if (enemies.length === 0) return;
+
+  const shooter = enemies[Math.floor(Math.random() * enemies.length)];
+
+  const bomb = document.createElement("img");
+  bomb.src = "../assets/bomb.png";
+  bomb.className = "bomb";
+
+  bomb.style.left = `${shooter.offsetLeft + shooter.offsetWidth / 2 - 7}px`;
+  bomb.style.top = `${shooter.offsetTop + shooter.offsetHeight}px`;
+
+  board.appendChild(bomb);
+  bombs.push(bomb);
+};
+
+// move bombs
+//update score
+//update lives
+//check collisions
+// check game over
+
  
 
 // Game Loop
