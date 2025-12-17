@@ -22,8 +22,10 @@ let rightPressed = false;
 
 const bulletSpeed = 15;
 let enemyDirection = 1;
-const enemySpeed = 3; 
+const enemySpeed = 1; 
 const enemyDrop = 20;
+let enemyTick = 0; 
+let enemyMoveEvery = 10;
 
 let bullets = [];
 let bombs = []; 
