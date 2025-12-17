@@ -238,6 +238,9 @@ const clearGameObjects = () => {
   bombs = [];
 };
 //update score
+const scoreIncrease = (points) => {
+  score += 100;
+};
 //update lives
 //check collisions
 // check game over
