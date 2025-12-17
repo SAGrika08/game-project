@@ -46,7 +46,7 @@ const placeBushes = () => {
 // Setup bushes
 const setupBushes = () => {
   bushes.forEach((bush) => {
-    bush.dataset.hp = 5;     
+    bush.hp = 5;     
   });
 };
 
