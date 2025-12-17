@@ -82,12 +82,6 @@ const movePlayer = () => {
   player.style.left = `${playerLeft}px`;
 };
 
-// Game Loop
-const gameLoop = () => {
-  if (!gameActive) return;
-    movePlayer();
-    moveBullets();
-}; 
 
 //shoot bullets
 const shootBullet = () => {
@@ -101,6 +95,26 @@ const shootBullet = () => {
   board.appendChild(bullet);
   bullets.push(bullet);
 };
+
+// move bullets
+const moveBullets = () => {
+  bullets = bullets.filter((bullet) => {
+    bullet.style.top = (bullet.offsetTop - 15) + "px";
+
+    if (bullet.offsetTop < 0) {
+      bullet.remove();
+      return false;
+    }
+    return true;
+  });
+};
+
+// Game Loop
+const gameLoop = () => {
+  if (!gameActive) return;
+    movePlayer();
+    moveBullets();
+}; 
 
  
 /*------------------------ Event Listeners ------------------------*/
