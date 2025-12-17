@@ -157,19 +157,37 @@ const createEnemies = () => {
 
 // move enemies
 const moveEnemies = () => {
-  
+   const enemySpeed = 3;   
+   let enemyDirection = 1;
+    enemies.forEach((enemy) => {
+    const left = enemy.offsetLeft;
+    const newLeft = left + enemySpeed * enemyDirection;
+
+    enemy.style.left = `${newLeft}px`;
 
   // if enemies reach board sides, change direction and move down
-  
+  if (newLeft <= 0 || newLeft + enemy.offsetWidth >= board.clientWidth) {
+      hitEdge = true;
+    }
+    if (hitEdge) {
+    enemyDirection = enemyDirection * -1;
+enemies.forEach((enemy) => {
+      const top = enemy.offsetTop;
+      enemy.style.top = `${top + enemyDrop}px`;
+    });
+ }
+    });
+};
 
   // if enemy reaches board bottom, reduce lifes
-};  
+ 
 
 // Game Loop
 const gameLoop = () => {
   if (!gameActive) return;
     movePlayer();
     moveBullets();
+    moveEnemies();
 }; 
 
  
