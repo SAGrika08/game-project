@@ -29,7 +29,7 @@ const enemySpeed = 2;
 const enemyDrop = 20;
 let enemyTick = 0; 
 let enemyMoveEvery = 10;
-const bombSpeed = 6; 
+const bombSpeed = 10; 
 
 let bullets = [];
 let bombs = []; 
@@ -49,7 +49,7 @@ const placeBushes = () => {
 // Setup bushes
 const setupBushes = () => {
   bushes.forEach((bush) => {
-    bush.hp = 5;    
+    bush.hp = 8;    
     bush.style.opacity = 1;
     bush.style.display = "block"; 
   });
@@ -237,7 +237,7 @@ const checkEnemyHitsBushes = () => {
 
 // enemy bombs
   const enemyShoot = () => {
-  if (enemies.length === 0) return;
+  //if (enemies.length === 0) return;
   if (bombs.length > 0) return;
 
   const shooter = enemies[Math.floor(Math.random() * enemies.length)];
