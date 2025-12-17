@@ -84,6 +84,12 @@ body {
   bottom: 100px;
 }
 
+.bullet {
+  position: absolute;
+  width: 20px;  
+  height: 40px;  
+}
+
 button {
 
   padding: 12px 18px;

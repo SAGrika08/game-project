@@ -85,8 +85,8 @@ const movePlayer = () => {
 // Game Loop
 const gameLoop = () => {
   if (!gameActive) return;
-
-  movePlayer();
+    movePlayer();
+    moveBullets();
 }; 
 
 //shoot bullets
