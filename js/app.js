@@ -242,6 +242,15 @@ const scoreIncrease = (points) => {
   score += 100;
 };
 //update lives
+const loseLife = () => {
+  lives -= 1;
+  if (lives <= 0) {
+    gameActive = false;
+    clearInterval(gameInterval);
+    alert("Game Over!");
+    goBack();
+  }
+};
 //check collisions
 // check game over
 
