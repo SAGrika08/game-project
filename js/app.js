@@ -273,7 +273,7 @@ const gameLoop = () => {
 /*------------------------ Event Listeners ------------------------*/
 startBtn.addEventListener("click", startGame);
 backBtn.addEventListener("click", goBack);
-resetBtn.addEventListener("click", startGame);
+resetBtn.addEventListener("click", resetGameState);
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") {
