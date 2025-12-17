@@ -47,8 +47,18 @@ const placeBushes = () => {
 const setupBushes = () => {
   bushes.forEach((bush) => {
     bush.dataset.hp = 5;     
-    bush.style.opacity = 1;
   });
+};
+
+// Damage bushes
+const damageBush = (bush) => {
+  bush.hp -= 1;            
+
+  bush.style.opacity = bush.hp / 5; 
+
+  if (bush.hp <= 0) {
+    bush.style.display = "none"; 
+  }
 };
 
 //Start Game
