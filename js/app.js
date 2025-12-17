@@ -40,6 +40,14 @@ const startGame = () => {
   gameActive = true;
   };
 
+  //Back Button
+  const goBack = () => {
+  gameActive = false;
+
+  gameScreen.style.display = "none";
+  startScreen.style.display = "flex";
+};
+
 /*------------------------ Event Listeners ------------------------*/
 startBtn.addEventListener("click", startGame);
 backBtn.addEventListener("click", goBack);
