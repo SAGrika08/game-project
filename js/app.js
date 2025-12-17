@@ -142,6 +142,10 @@ const createEnemies = () => {
       enemy.src = bugSrc;
       enemy.className = "enemy";
 
+      if (bugSrc.includes("hopper")) {
+      enemy.classList.add("hopper");
+      }
+
       enemy.style.left = `${startX + col * gapX}px`;
       enemy.style.top = `${startY + row * gapY}px`;
 
