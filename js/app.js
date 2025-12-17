@@ -211,15 +211,17 @@ const moveEnemies = () => {
       enemy.style.top = `${top + enemyDrop}px`;
     });
       // if enemy reaches board bottom, reduce lifes
-      const checkEnemyBottom = () => {
+     const checkEnemyHitsBushes = () => {
   for (let i = 0; i < enemies.length; i++) {
-    const enemy = enemies[i];
-    if (enemy.offsetTop + enemy.offsetHeight >= board.clientHeight) {
-      loseLife();
-      return;
+    for (let j = 0; j < bushes.length; j++) {
+      const bush = bushes[j];
+      if (bush.style.display === "none") continue;
+
+      if (isColliding(enemies[i], bush)) {
+        loseLife();
+        return;
+      }
     }
-  }
-};
   }
 };
 
