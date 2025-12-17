@@ -222,6 +222,18 @@ const moveBombs = () => {
     return true;
   });
 };
+
+//clear game objects
+const clearGameObjects = () => {
+  enemies.forEach(e => e.remove());
+  enemies = [];
+
+  bullets.forEach(b => b.remove());
+  bullets = [];
+
+  bombs.forEach(b => b.remove());
+  bombs = [];
+};
 //update score
 //update lives
 //check collisions
