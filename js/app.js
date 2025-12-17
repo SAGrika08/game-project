@@ -280,6 +280,15 @@ const loseLife = () => {
   }
 };
 
+// collision detection
+const isColliding = (a, b) => {
+  return (
+    a.offsetLeft < b.offsetLeft + b.offsetWidth &&
+    a.offsetLeft + a.offsetWidth > b.offsetLeft &&
+    a.offsetTop < b.offsetTop + b.offsetHeight &&
+    a.offsetTop + a.offsetHeight > b.offsetTop
+  );
+};
 //check collisions
 // check game over
 
