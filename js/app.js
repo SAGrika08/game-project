@@ -54,12 +54,15 @@ const startGame = () => {
 
   clearInterval(gameInterval);
   gameInterval = setInterval(gameLoop, 50);
-  };
+   clearInterval(bombInterval);
+  bombInterval = setInterval(enemyShoot, 1000);
+};
 
   //Back Button
   const goBack = () => {
   gameActive = false;
   clearInterval(gameInterval);
+  clearInterval(bombInterval);
 
   playerLeft = 270;
   player.style.left = `${playerLeft}px`;
