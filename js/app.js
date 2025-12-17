@@ -43,6 +43,14 @@ const placeBushes = () => {
   });
 };
 
+// Setup bushes
+const setupBushes = () => {
+  bushes.forEach((bush) => {
+    bush.dataset.hp = 5;     
+    bush.style.opacity = 1;
+  });
+};
+
 //Start Game
 const startGame = () => {
   startScreen.style.display = "none";
@@ -251,6 +259,7 @@ const loseLife = () => {
     goBack();
   }
 };
+
 //check collisions
 // check game over
 
