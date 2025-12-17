@@ -10,6 +10,9 @@ const board = document.querySelector("#board");
 const player = document.querySelector("#player");
 const bushes = document.querySelectorAll(".bush");
 
+const scoreEl = document.querySelector("#score");
+const livesEl = document.querySelector("#lives");
+
 /*------------------------ Variables ------------------------*/
 let gameActive = false;
 let gameInterval;
@@ -46,7 +49,9 @@ const placeBushes = () => {
 // Setup bushes
 const setupBushes = () => {
   bushes.forEach((bush) => {
-    bush.hp = 5;     
+    bush.hp = 5;    
+    bush.style.opacity = 1;
+    bush.style.display = "block"; 
   });
 };
 
@@ -76,6 +81,9 @@ const startGame = () => {
   gameInterval = setInterval(gameLoop, 50);
    clearInterval(bombInterval);
   bombInterval = setInterval(enemyShoot, 1000);
+
+  scoreEl.textContent = "Score: " + score;
+  livesEl.style.width = (lives * 40) + "px";
 };
 
   //Back Button
@@ -123,7 +131,7 @@ const shootBullet = () => {
   bullet.src = "./assets/bullet.png";
   bullet.className = "bullet";
 
-  bullet.style.left = `${playerLeft + 24}px`;
+  bullet.style.left = (playerLeft + player.offsetWidth / 2 - 10) + "px";
   bullet.style.top = (board.clientHeight - 70) + "px";
 
   board.appendChild(bullet);
@@ -193,25 +201,25 @@ const moveEnemies = () => {
   let hitEdge = false;
 
   enemies.forEach((enemy) => {
-    const left = enemy.offsetLeft;
-    const newLeft = left + enemySpeed * enemyDirection;
+    const newLeft = enemy.offsetLeft + enemySpeed * enemyDirection;
+    enemy.style.left = newLeft + "px";
 
-    enemy.style.left = `${newLeft}px`;
-// if enemies reach board sides hit edge, change direction and move down
     if (newLeft <= 0 || newLeft + enemy.offsetWidth >= board.clientWidth) {
       hitEdge = true;
     }
   });
 
   if (hitEdge) {
-    enemyDirection = enemyDirection * -1;
+    enemyDirection *= -1;
 
     enemies.forEach((enemy) => {
-      const top = enemy.offsetTop;
-      enemy.style.top = `${top + enemyDrop}px`;
+      enemy.style.top = (enemy.offsetTop + enemyDrop) + "px";
     });
-      // if enemy reaches board bottom, reduce lifes
-     const checkEnemyHitsBushes = () => {
+  }
+};
+
+//check if enemies hit bushes
+const checkEnemyHitsBushes = () => {
   for (let i = 0; i < enemies.length; i++) {
     for (let j = 0; j < bushes.length; j++) {
       const bush = bushes[j];
@@ -269,14 +277,20 @@ const clearGameObjects = () => {
 };
 //update score
 const scoreIncrease = (points) => {
-  score += 100;
+  score += points;
+  scoreEl.textContent = "Score: " + score;
 };
+
+
 //update lives
 const loseLife = () => {
   lives -= 1;
+  livesEl.style.width = (lives * 40) + "px";
+
   if (lives <= 0) {
     gameActive = false;
     clearInterval(gameInterval);
+    clearInterval(bombInterval);
     alert("Game Over!");
     goBack();
   }
@@ -375,6 +389,7 @@ const gameLoop = () => {
     enemyTick = 0;
   }
   checkCollisions();
+   checkEnemyHitsBushes(); 
 }; 
 
  
