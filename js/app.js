@@ -112,6 +112,9 @@ const moveBullets = () => {
   });
 };
 
+// create enemies 
+
+
 // Game Loop
 const gameLoop = () => {
   if (!gameActive) return;
@@ -133,7 +136,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {
     rightPressed = true;
   }
-   if (e.key === "Space" && gameActive) 
+   if (e.key === " " && gameActive) 
     shootBullet();
 });
 
