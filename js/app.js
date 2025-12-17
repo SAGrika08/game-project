@@ -290,6 +290,73 @@ const isColliding = (a, b) => {
   );
 };
 //check collisions
+const checkCollisions = () => {
+  const bushList = Array.from(bushes);
+
+  // 1) Bullet ↔ Enemy  (remove both + score)
+  for (let i = bullets.length - 1; i >= 0; i--) {
+    const bullet = bullets[i];
+
+    for (let j = enemies.length - 1; j >= 0; j--) {
+      const enemy = enemies[j];
+
+      if (isColliding(bullet, enemy)) {
+        bullet.remove();
+        enemy.remove();
+        bullets.splice(i, 1);
+        enemies.splice(j, 1);
+
+        scoreIncrease(100);
+        break; // bullet is gone
+      }
+    }
+  }
+
+  // 2) Bomb ↔ Player (remove bomb + lose life)
+  for (let i = bombs.length - 1; i >= 0; i--) {
+    const bomb = bombs[i];
+
+    if (isColliding(bomb, player)) {
+      bomb.remove();
+      bombs.splice(i, 1);
+      loseLife();
+    }
+  }
+
+  // 3) Bullet ↔ Bush (remove bullet + damage bush)
+  for (let i = bullets.length - 1; i >= 0; i--) {
+    const bullet = bullets[i];
+
+    for (let k = 0; k < bushList.length; k++) {
+      const bush = bushList[k];
+      if (bush.style.display === "none") continue;
+
+      if (isColliding(bullet, bush)) {
+        bullet.remove();
+        bullets.splice(i, 1);
+        damageBush(bush);
+        break;
+      }
+    }
+  }
+
+  // 4) Bomb ↔ Bush (remove bomb + damage bush)
+  for (let i = bombs.length - 1; i >= 0; i--) {
+    const bomb = bombs[i];
+
+    for (let k = 0; k < bushList.length; k++) {
+      const bush = bushList[k];
+      if (bush.style.display === "none") continue;
+
+      if (isColliding(bomb, bush)) {
+        bomb.remove();
+        bombs.splice(i, 1);
+        damageBush(bush);
+        break;
+      }
+    }
+  }
+};
 // check game over
 
  
