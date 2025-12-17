@@ -65,6 +65,8 @@ const startGame = () => {
   clearInterval(gameInterval);
   clearInterval(bombInterval);
 
+   clearGameObjects();
+
   playerLeft = 270;
   player.style.left = `${playerLeft}px`;
 
@@ -74,6 +76,7 @@ const startGame = () => {
 
 //Reset Game 
  const resetGameState = () => {
+   clearGameObjects();
   score = 0;
   lives = 3;
   playerLeft = 270;
