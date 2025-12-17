@@ -90,6 +90,13 @@ body {
   height: 40px;  
 }
 
+.bomb {
+  position: absolute;
+  width: 30px;  
+  height: 40px;  
+}
+
+
 .enemy.hopper {
   width: 70px;
 }
