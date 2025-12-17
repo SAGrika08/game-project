@@ -44,6 +44,7 @@ const startGame = () => {
   score = 0;
   lives = 3;
   placeBushes();
+  createEnemies();
   gameActive = true;
 
   clearInterval(gameInterval);
