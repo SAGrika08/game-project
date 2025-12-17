@@ -88,6 +88,20 @@ const gameLoop = () => {
 
   movePlayer();
 }; 
+
+//shoot bullets
+const shootBullet = () => {
+  const bullet = document.createElement("img");
+  bullet.src = "./assets/bullet.png";
+  bullet.className = "bullet";
+
+  bullet.style.left = `${playerLeft + 24}px`;
+  bullet.style.bottom = `70px`;
+
+  board.appendChild(bullet);
+  bullets.push(bullet);
+};
+
  
 /*------------------------ Event Listeners ------------------------*/
 startBtn.addEventListener("click", startGame);
