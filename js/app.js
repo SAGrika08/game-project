@@ -229,6 +229,7 @@ const gameLoop = () => {
   if (!gameActive) return;
     movePlayer();
     moveBullets();
+    moveBombs(); 
     enemyTick++;
   if (enemyTick >= enemyMoveEvery) {
     moveEnemies();
