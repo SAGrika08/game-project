@@ -22,7 +22,7 @@ let rightPressed = false;
 
 const bulletSpeed = 15;
 let enemyDirection = 1;
-const enemySpeed = 1; 
+const enemySpeed = 2; 
 const enemyDrop = 20;
 let enemyTick = 0; 
 let enemyMoveEvery = 10;
