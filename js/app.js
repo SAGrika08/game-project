@@ -322,8 +322,7 @@ const loseLife = () => {
     gameActive = false;
     clearInterval(gameInterval);
     clearInterval(bombInterval);
-    alert("Game Over!");
-    goBack();
+    showGameOver();
     return;
   }
   setTimeout(() => {
