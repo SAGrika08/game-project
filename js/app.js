@@ -26,7 +26,7 @@ let respawning = false;
 
 const bulletSpeed = 15;
 let enemyDirection = 1;
-const enemySpeed = 2; 
+const enemySpeed = 3; 
 const enemyDrop = 20;
 let enemyTick = 0; 
 let enemyMoveEvery = 10;
@@ -42,7 +42,7 @@ let lives = 3;
 
 // Bushes
 const placeBushes = () => {
-  const positions = [20, 200, 360, 520];
+  const positions = [40, 213, 386, 560];
   bushes.forEach((bush, index) => {
     bush.style.left = `${positions[index]}px`;
   });

@@ -59,7 +59,7 @@ body {
 
 #board {
   position: relative;
-  width: 600px;
+  width: 700px;
   height: 700px;
   overflow: hidden;
 }
