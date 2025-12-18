@@ -107,6 +107,9 @@ const startGame = () => {
 //Reset Game 
  const resetGameState = () => {
    clearGameObjects();
+  placeBushes();
+  setupBushes();
+  createEnemies();  
   score = 0;
   lives = 3;
   playerLeft = 270;
