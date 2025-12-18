@@ -74,14 +74,21 @@ const damageBush = (bush) => {
 
 //Start Game
 const startGame = () => {
+  hideGameOver();
   startScreen.style.display = "none";
   gameScreen.style.display = "flex";
   score = 0;
   lives = 3;
+  respawning = false;
+enemyDirection = 1;
+enemyTick = 0;
   placeBushes();
   setupBushes();
   createEnemies();
   gameActive = true;
+
+  layerLeft = 270;
+  player.style.left = `${playerLeft}px`;
 
   clearInterval(gameInterval);
   gameInterval = setInterval(gameLoop, 50);
@@ -117,6 +124,8 @@ const startGame = () => {
   createEnemies();  
   score = 0;
   lives = 3;
+enemyDirection = 1;
+enemyTick = 0;
   playerLeft = 270;
   player.style.left = `${playerLeft}px`;
   respawning = false;
@@ -425,6 +434,7 @@ const showGameOver = () => {
 const hideGameOver = () => {
   gameOverScreen.style.display = "none";
   board.style.display = "block";
+   statsSection.style.display = "flex";
 };
 
 // next wave
