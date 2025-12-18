@@ -72,6 +72,15 @@ body {
   left: 270px;   
 }
 
+#gameover-screen {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
 .controls {
   display: flex;
   gap: 12px;
