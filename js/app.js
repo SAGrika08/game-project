@@ -412,11 +412,16 @@ const checkCollisions = () => {
     nextWave();
   }
 };
-// check game over
+// game over
 const showGameOver = () => {
   finalScoreEl.textContent = "Score: " + score;
   board.style.display = "none";
   gameOverScreen.style.display = "flex";
+};
+
+const hideGameOver = () => {
+  gameOverScreen.style.display = "none";
+  board.style.display = "block";
 };
 
 // next wave
