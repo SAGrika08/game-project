@@ -49,6 +49,10 @@ moveSound.volume = 0.4;
 const shootSound = new Audio("./assets/shoot-1-81135.mp3");
 shootSound.volume = 0.5;
 
+const enemyHitSound = new Audio("./assets/bullethit-449809.mp3");
+enemyHitSound.volume = 0.6;
+
+
 
 
 // Bushes
@@ -182,7 +186,7 @@ const shootBullet = () => {
 
   shootSound.currentTime = 0;
   shootSound.play();
-  
+
   const bullet = document.createElement("img");
   bullet.src = "./assets/bullet.png";
   bullet.className = "bullet";
@@ -382,7 +386,7 @@ const isColliding = (a, b) => {
 const checkCollisions = () => {
   const bushList = Array.from(bushes);
 
-  // 1) Bullet ↔ Enemy  (remove both + score)
+  //Bullet>Enemy  (remove both + score)
   for (let i = bullets.length - 1; i >= 0; i--) {
     const bullet = bullets[i];
 
@@ -390,6 +394,8 @@ const checkCollisions = () => {
       const enemy = enemies[j];
 
       if (isColliding(bullet, enemy)) {
+        enemyHitSound.currentTime = 0;
+        enemyHitSound.play();
         bullet.remove();
         enemy.remove();
         bullets.splice(i, 1);
@@ -401,7 +407,7 @@ const checkCollisions = () => {
     }
   }
 
-  // 2) Bomb ↔ Player (remove bomb + lose life)
+  //Bomb > Player (remove bomb + lose life)
   for (let i = bombs.length - 1; i >= 0; i--) {
     const bomb = bombs[i];
 
@@ -412,7 +418,7 @@ const checkCollisions = () => {
     }
   }
 
-  // 3) Bullet ↔ Bush (remove bullet + damage bush)
+  //Bullet > Bush (remove bullet + damage bush)
   for (let i = bullets.length - 1; i >= 0; i--) {
     const bullet = bullets[i];
 
@@ -429,7 +435,7 @@ const checkCollisions = () => {
     }
   }
 
-  // 4) Bomb ↔ Bush (remove bomb + damage bush)
+  // Bomb > Bush (remove bomb + damage bush)
   for (let i = bombs.length - 1; i >= 0; i--) {
     const bomb = bombs[i];
 
