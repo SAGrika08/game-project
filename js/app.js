@@ -110,6 +110,7 @@ const startGame = () => {
 
 //Reset Game 
  const resetGameState = () => {
+  hideGameOver();
    clearGameObjects();
   placeBushes();
   setupBushes();
