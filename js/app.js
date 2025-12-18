@@ -21,6 +21,7 @@ const finalScoreEl = document.querySelector("#final-score");
 let gameActive = false;
 let gameInterval;
 let bombInterval;
+let respawnTimeout;
 
 let playerLeft = 270;
 const playerSpeed = 8;
@@ -75,6 +76,11 @@ const damageBush = (bush) => {
 //Start Game
 const startGame = () => {
   hideGameOver();
+
+clearTimeout(respawnTimeout);
+respawning = false;
+player.style.display = "block";
+
   startScreen.style.display = "none";
   gameScreen.style.display = "flex";
   score = 0;
@@ -87,7 +93,7 @@ enemyTick = 0;
   createEnemies();
   gameActive = true;
 
-  layerLeft = 270;
+  playerLeft = 270;
   player.style.left = `${playerLeft}px`;
 
   clearInterval(gameInterval);
@@ -103,6 +109,10 @@ enemyTick = 0;
   //Back Button
   const goBack = () => {
   gameActive = false;
+  clearTimeout(respawnTimeout);
+respawning = false;
+player.style.display = "block";
+
   clearInterval(gameInterval);
   clearInterval(bombInterval);
 
@@ -118,6 +128,10 @@ enemyTick = 0;
 //Reset Game 
  const resetGameState = () => {
   hideGameOver();
+  clearTimeout(respawnTimeout);
+respawning = false;
+player.style.display = "block";
+
    clearGameObjects();
   placeBushes();
   setupBushes();
@@ -336,10 +350,11 @@ const loseLife = () => {
     showGameOver();
     return;
   }
-  setTimeout(() => {
-    player.style.display = "block";
-    respawning = false;
-  }, 2000);   
+  clearTimeout(respawnTimeout);
+  respawnTimeout = setTimeout(() => {
+  player.style.display = "block";
+  respawning = false;
+   }, 2000); 
 };  
 
 // collision detection
