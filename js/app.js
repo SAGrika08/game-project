@@ -344,7 +344,7 @@ const checkCollisions = () => {
         enemies.splice(j, 1);
 
         scoreIncrease(100);
-        break; // bullet is gone
+        break; 
       }
     }
   }
@@ -400,7 +400,8 @@ const checkCollisions = () => {
 
 // Game Loop
 const gameLoop = () => {
-  if (!gameActive) return;
+   if (!gameActive) return;
+    if (respawning) return;
     movePlayer();
     moveBullets();
     moveBombs(); 
