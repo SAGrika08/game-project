@@ -42,7 +42,7 @@ let lives = 3;
 
 // Bushes
 const placeBushes = () => {
-  const positions = [40, 180, 320, 460];
+  const positions = [10, 210, 360, 520];
   bushes.forEach((bush, index) => {
     bush.style.left = `${positions[index]}px`;
   });
