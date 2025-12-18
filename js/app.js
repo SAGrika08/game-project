@@ -394,10 +394,24 @@ const checkCollisions = () => {
       }
     }
   }
+  if (enemies.length === 0) {
+    nextWave();
+  }
 };
 // check game over
 
  
+// next wave
+const nextWave = () => {
+  respawning = true;
+
+  setTimeout(() => {
+    createEnemies();
+    lives += 1;
+    livesEl.style.width = (lives * 40) + "px";
+    respawning = false;
+  }, 1500);
+};
 
 // Game Loop
 const gameLoop = () => {
