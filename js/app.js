@@ -416,6 +416,7 @@ const showGameOver = () => {
   finalScoreEl.textContent = "Score: " + score;
   board.style.display = "none";
   gameOverScreen.style.display = "flex";
+  
 };
 
 const hideGameOver = () => {
