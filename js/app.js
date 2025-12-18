@@ -157,6 +157,7 @@ player.style.display = "block";
   placeBushes();
   setupBushes();
   createEnemies();  
+  playmoveSound();
   score = 0;
   lives = 3;
 enemyDirection = 1;
