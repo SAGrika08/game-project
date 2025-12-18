@@ -12,6 +12,9 @@ const bushes = document.querySelectorAll(".bush");
 
 const scoreEl = document.querySelector("#score");
 const livesEl = document.querySelector("#lives");
+const gameOverScreen = document.querySelector("#gameover-screen");
+const finalScoreEl = document.querySelector("#final-score");
+const playAgainBtn = document.querySelector("#play-again");
 
 /*------------------------ Variables ------------------------*/
 let gameActive = false;
