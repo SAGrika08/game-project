@@ -14,7 +14,7 @@ const scoreEl = document.querySelector("#score");
 const livesEl = document.querySelector("#lives");
 const gameOverScreen = document.querySelector("#gameover-screen");
 const finalScoreEl = document.querySelector("#final-score");
-const playAgainBtn = document.querySelector("#play-again");
+//const playAgainBtn = document.querySelector("#play-again");
 
 /*------------------------ Variables ------------------------*/
 let gameActive = false;
@@ -416,7 +416,7 @@ const showGameOver = () => {
   finalScoreEl.textContent = "Score: " + score;
   board.style.display = "none";
   gameOverScreen.style.display = "flex";
-  
+
 };
 
 const hideGameOver = () => {
