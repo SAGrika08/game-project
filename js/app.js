@@ -43,6 +43,9 @@ let enemies = [];
 let score = 0;
 let lives = 3;
 
+const moveSound = new Audio("./assets/insect-flying-sound-426783.mp3");
+moveSound.volume = 0.4;
+
 
 
 // Bushes
@@ -262,6 +265,8 @@ const moveEnemies = () => {
       enemy.style.top = (enemy.offsetTop + enemyDrop) + "px";
     });
   }
+  moveSound.currentTime = 0;
+  moveSound.play();
 };
 
 //check if enemies hit bushes
