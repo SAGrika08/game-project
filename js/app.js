@@ -45,6 +45,7 @@ let lives = 3;
 
 const moveSound = new Audio("./assets/insect-flying-sound-426783.mp3");
 moveSound.volume = 0.4;
+moveSound.loop = true;
 
 const shootSound = new Audio("./assets/shoot-1-81135.mp3");
 shootSound.volume = 0.5;
@@ -55,7 +56,13 @@ enemyHitSound.volume = 0.6;
 const playerHitSound = new Audio("./assets/player-hit-sound-13714.mp3");
 playerHitSound.volume = 0.6;
 
-
+const playmoveSound = () => {
+  moveSound.play();
+};
+const stopmoveSound = () => {
+moveSound.pause();
+  moveSound.currentTime = 0; 
+};
 
 // Bushes
 const placeBushes = () => {
@@ -103,6 +110,7 @@ enemyTick = 0;
   placeBushes();
   setupBushes();
   createEnemies();
+  playmoveSound();
   gameActive = true;
 
   playerLeft = 270;
@@ -129,6 +137,7 @@ player.style.display = "block";
   clearInterval(bombInterval);
 
    clearGameObjects();
+   stopmoveSound();
 
   playerLeft = 270;
   player.style.left = `${playerLeft}px`;
@@ -278,8 +287,6 @@ const moveEnemies = () => {
       enemy.style.top = (enemy.offsetTop + enemyDrop) + "px";
     });
   }
-  moveSound.currentTime = 0;
-  moveSound.play();
 };
 
 //check if enemies hit bushes
@@ -354,6 +361,7 @@ const loseLife = () => {
 
   respawning = true;
   player.style.display = "none";
+  stopmoveSound();
 
   bombs.forEach(b => b.remove());
   bombs = [];
@@ -371,6 +379,7 @@ const loseLife = () => {
   clearTimeout(respawnTimeout);
   respawnTimeout = setTimeout(() => {
   player.style.display = "block";
+  playmoveSound();
   respawning = false;
    }, 2000); 
 };  
@@ -461,6 +470,7 @@ const checkCollisions = () => {
 };
 // game over
 const showGameOver = () => {
+  stopmoveSound();
   finalScoreEl.textContent = "Score: " + score;
   board.style.display = "none";
    statsSection.style.display = "none";
