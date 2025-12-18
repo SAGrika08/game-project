@@ -114,7 +114,11 @@ const startGame = () => {
   lives = 3;
   playerLeft = 270;
   player.style.left = `${playerLeft}px`;
+  respawning = false;
   gameActive = true;
+  scoreEl.textContent = "Score: " + score;
+  livesEl.style.width = (lives * 40) + "px";
+
 
   clearInterval(gameInterval);
   gameInterval = setInterval(gameLoop, 50);
