@@ -46,6 +46,9 @@ let lives = 3;
 const moveSound = new Audio("./assets/insect-flying-sound-426783.mp3");
 moveSound.volume = 0.4;
 
+const shootSound = new Audio("./assets/shoot-1-81135.mp3");
+shootSound.volume = 0.5;
+
 
 
 // Bushes
