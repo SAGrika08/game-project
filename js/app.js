@@ -53,7 +53,7 @@ shootSound.volume = 0.5;
 const enemyHitSound = new Audio("./assets/bullethit-449809.mp3");
 enemyHitSound.volume = 0.6;
 
-const playerHitSound = new Audio("./assets/player-hit-sound-13714.mp3");
+const playerHitSound = new Audio("./assets/blast-37988.mp3");
 playerHitSound.volume = 0.6;
 
 const playmoveSound = () => {
@@ -152,7 +152,7 @@ player.style.display = "block";
   clearTimeout(respawnTimeout);
 respawning = false;
 player.style.display = "block";
-
+ 
    clearGameObjects();
   placeBushes();
   setupBushes();
@@ -357,6 +357,7 @@ const scoreIncrease = (points) => {
 //update lives
 const loseLife = () => {
    if (respawning) return;
+
   lives -= 1;
   livesEl.style.width = (lives * 40) + "px";
 
