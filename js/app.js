@@ -242,8 +242,8 @@ const checkEnemyHitsBushes = () => {
 
 // enemy bombs
   const enemyShoot = () => {
-  //if (enemies.length === 0) return;
-  if (bombs.length > 0) return;
+  if (enemies.length === 0) return;
+  //if (bombs.length > 0) return;
 
   const shooter = enemies[Math.floor(Math.random() * enemies.length)];
 
