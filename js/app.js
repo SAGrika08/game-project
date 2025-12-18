@@ -456,6 +456,10 @@ const gameLoop = () => {
 startBtn.addEventListener("click", startGame);
 backBtn.addEventListener("click", goBack);
 resetBtn.addEventListener("click", resetGameState);
+playAgainBtn.addEventListener("click", () => {
+  hideGameOver();
+  resetGameState();
+});   
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") {
