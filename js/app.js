@@ -416,6 +416,7 @@ const checkCollisions = () => {
 const showGameOver = () => {
   finalScoreEl.textContent = "Score: " + score;
   board.style.display = "none";
+   statsSection.style.display = "none";
   gameOverScreen.style.display = "flex";
 
 };
