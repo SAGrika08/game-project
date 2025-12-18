@@ -52,6 +52,8 @@ shootSound.volume = 0.5;
 const enemyHitSound = new Audio("./assets/bullethit-449809.mp3");
 enemyHitSound.volume = 0.6;
 
+const playerHitSound = new Audio("./assets/player-hit-sound-13714.mp3");
+playerHitSound.volume = 0.6;
 
 
 
@@ -412,6 +414,8 @@ const checkCollisions = () => {
     const bomb = bombs[i];
 
     if (isColliding(bomb, player)) {
+      playerHitSound.currentTime = 0;
+      playerHitSound.play();
       bomb.remove();
       bombs.splice(i, 1);
       loseLife();
