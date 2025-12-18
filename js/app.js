@@ -12,6 +12,7 @@ const bushes = document.querySelectorAll(".bush");
 
 const scoreEl = document.querySelector("#score");
 const livesEl = document.querySelector("#lives");
+const statsSection = document.querySelector(".stats");
 const gameOverScreen = document.querySelector("#gameover-screen");
 const finalScoreEl = document.querySelector("#final-score");
 
