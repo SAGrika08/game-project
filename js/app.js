@@ -291,6 +291,7 @@ const scoreIncrease = (points) => {
 
 //update lives
 const loseLife = () => {
+   if (respawning) return;
   lives -= 1;
   livesEl.style.width = (lives * 40) + "px";
 
@@ -428,7 +429,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") {
     rightPressed = true;
   }
-   if (e.key === " " && gameActive) 
+   if (e.key === " " && gameActive && !respawning) 
     shootBullet();
 });
 
