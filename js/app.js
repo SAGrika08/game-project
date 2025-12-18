@@ -114,6 +114,13 @@ const startGame = () => {
   lives = 3;
   playerLeft = 270;
   player.style.left = `${playerLeft}px`;
+  gameActive = true;
+
+  clearInterval(gameInterval);
+  gameInterval = setInterval(gameLoop, 50);
+
+  clearInterval(bombInterval);
+  bombInterval = setInterval(enemyShoot, 1000);
 
 };
 
