@@ -14,7 +14,7 @@ const scoreEl = document.querySelector("#score");
 const livesEl = document.querySelector("#lives");
 const gameOverScreen = document.querySelector("#gameover-screen");
 const finalScoreEl = document.querySelector("#final-score");
-//const playAgainBtn = document.querySelector("#play-again");
+
 
 /*------------------------ Variables ------------------------*/
 let gameActive = false;
@@ -457,10 +457,7 @@ const gameLoop = () => {
 startBtn.addEventListener("click", startGame);
 backBtn.addEventListener("click", goBack);
 resetBtn.addEventListener("click", resetGameState);
-playAgainBtn.addEventListener("click", () => {
-  hideGameOver();
-  resetGameState();
-});   
+ 
 
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") {
