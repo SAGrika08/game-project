@@ -24,6 +24,9 @@ The following external assets were used in this project:
 * Sound effects: https://pixabay.com/sound-effects/search/
 * Image assets: https://www.freepik.com/
 
+# GitHub Repo
+https://github.com/SAGrika08/game-project.git 
+
 # Tech Stack
 * JavaScript 
 * HTML 
