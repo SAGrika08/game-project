@@ -297,7 +297,7 @@ const checkEnemyHitsBushes = () => {
       const bush = bushes[j];
       if (bush.style.display === "none") continue;
 
-      if (isColliding(enemies[i], bush)) {
+      if (isColliding(enemies[i], bush, hitbox.enemy, hitbox.bush)) {
         loseLife();
         return;
       }

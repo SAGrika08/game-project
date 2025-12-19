@@ -8,6 +8,7 @@ This game was built as part of a project requirement to create a browser-based g
 
 # Play the Game
 
+
 # How to Play?
 * Use the Left and Right Arrow Keys to move the gardener
 * Press Spacebar to shoot pests
