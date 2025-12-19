@@ -390,7 +390,7 @@ const loseLife = () => {
 const hitbox = {
   player: { x: 12, y: 12 },
   enemy:  { x: 8,  y: 8  },
-  bush:   { x: 10, y: 10 },
+  bush:   { x: 10, y: 18 },
   bullet: { x: 4,  y: 6  },
   bomb:   { x: 6,  y: 6  },
 };
