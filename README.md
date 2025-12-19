@@ -16,6 +16,7 @@ This game was built as part of a project requirement to create a browser-based g
 * The game ends when all lives are lost
 
 # Planning Materials
+Figma: https://www.figma.com/design/24fNUtARquyjqaGlAtG9AT/Game?node-id=0-1&t=uHaROw23dEYjQ5xO-1
 
 # Attributions
 The following external assets were used in this project:
