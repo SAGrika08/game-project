@@ -387,14 +387,37 @@ const loseLife = () => {
 };  
 
 // collision detection
-const isColliding = (a, b) => {
+const hitbox = {
+  player: { x: 12, y: 12 },
+  enemy:  { x: 8,  y: 8  },
+  bush:   { x: 10, y: 10 },
+  bullet: { x: 4,  y: 6  },
+  bomb:   { x: 6,  y: 6  },
+};
+
+// smaller rectangle (hitbox) for an element
+const getBox = (el, pad) => {
+  return {
+    left: el.offsetLeft + pad.x,
+    right: el.offsetLeft + el.offsetWidth - pad.x,
+    top: el.offsetTop + pad.y,
+    bottom: el.offsetTop + el.offsetHeight - pad.y,
+  };
+};
+
+// Collision check using the smaller hitboxes 
+const isColliding = (a, b, padA, padB) => {
+  const A = getBox(a, padA);
+  const B = getBox(b, padB);
+
   return (
-    a.offsetLeft < b.offsetLeft + b.offsetWidth &&
-    a.offsetLeft + a.offsetWidth > b.offsetLeft &&
-    a.offsetTop < b.offsetTop + b.offsetHeight &&
-    a.offsetTop + a.offsetHeight > b.offsetTop
+    A.left < B.right &&
+    A.right > B.left &&
+    A.top < B.bottom &&
+    A.bottom > B.top
   );
 };
+
 //check collisions
 const checkCollisions = () => {
   const bushList = Array.from(bushes);
@@ -406,7 +429,7 @@ const checkCollisions = () => {
     for (let j = enemies.length - 1; j >= 0; j--) {
       const enemy = enemies[j];
 
-      if (isColliding(bullet, enemy)) {
+       if (isColliding(bullet, enemy, hitbox.bullet, hitbox.enemy)) {
         enemyHitSound.currentTime = 0;
         enemyHitSound.play();
         bullet.remove();
@@ -424,7 +447,7 @@ const checkCollisions = () => {
   for (let i = bombs.length - 1; i >= 0; i--) {
     const bomb = bombs[i];
 
-    if (isColliding(bomb, player)) {
+    if (isColliding(bomb, player, hitbox.bomb, hitbox.player)) {
       playerHitSound.currentTime = 0;
       playerHitSound.play();
       bomb.remove();
@@ -441,7 +464,7 @@ const checkCollisions = () => {
       const bush = bushList[k];
       if (bush.style.display === "none") continue;
 
-      if (isColliding(bullet, bush)) {
+      if (isColliding(bullet, bush, hitbox.bullet, hitbox.bush)) {
         bullet.remove();
         bullets.splice(i, 1);
         damageBush(bush);
@@ -458,7 +481,7 @@ const checkCollisions = () => {
       const bush = bushList[k];
       if (bush.style.display === "none") continue;
 
-      if (isColliding(bomb, bush)) {
+      if (isColliding(bomb, bush, hitbox.bomb, hitbox.bush)) {
         bomb.remove();
         bombs.splice(i, 1);
         damageBush(bush);
