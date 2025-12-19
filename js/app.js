@@ -85,7 +85,7 @@ const setupBushes = () => {
 const damageBush = (bush) => {
   bush.hp -= 1;            
 
-  bush.style.opacity = bush.hp / 5; 
+  bush.style.opacity = bush.hp / 8; 
 
   if (bush.hp <= 0) {
     bush.style.display = "none"; 
