@@ -7,7 +7,7 @@ Bloom Cycle is a browser-based arcade shooter inspired by the classic Space Inva
 This game was built as part of a project requirement to create a browser-based game using JavaScript. I chose this structure because a familiar arcade format allowed me to focus on implementing core mechanics efficiently, while re-theming the gameplay around environmental protection made the experience more educational and meaningful.
 
 # Play the Game
-
+https://sagrika08.github.io/game-project/
 
 # How to Play?
 * Use the Left and Right Arrow Keys to move the gardener
