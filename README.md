@@ -17,7 +17,7 @@ This game was built as part of a project requirement to create a browser-based g
 
 # Planning Materials
 
-# Technologies used 
+# Tech Stack
 * JavaScript 
 * HTML 
 * CSS
