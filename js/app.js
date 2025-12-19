@@ -313,7 +313,7 @@ const checkEnemyHitsBushes = () => {
   const shooter = enemies[Math.floor(Math.random() * enemies.length)];
 
   const bomb = document.createElement("img");
-  bomb.src = "../assets/bomb.png";
+  bomb.src = "./assets/bomb.png";
   bomb.className = "bomb";
 
   bomb.style.left = `${shooter.offsetLeft + shooter.offsetWidth / 2 - 7}px`;
