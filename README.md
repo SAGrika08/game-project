@@ -17,6 +17,9 @@ This game was built as part of a project requirement to create a browser-based g
 
 # Planning Materials
 
+# Attributions
+The following external assets were used in this project:
+
 # Tech Stack
 * JavaScript 
 * HTML 
