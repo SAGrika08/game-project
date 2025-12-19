@@ -387,6 +387,7 @@ const loseLife = () => {
 };  
 
 // collision detection
+//smaller hitboxes for each element
 const hitbox = {
   player: { x: 12, y: 12 },
   enemy:  { x: 8,  y: 8  },
@@ -395,7 +396,7 @@ const hitbox = {
   bomb:   { x: 6,  y: 6  },
 };
 
-// smaller rectangle (hitbox) for an element
+// smaller rectangle (hitbox) for an element placement
 const getBox = (el, pad) => {
   return {
     left: el.offsetLeft + pad.x,
