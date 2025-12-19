@@ -470,6 +470,8 @@ const checkCollisions = () => {
     nextWave();
   }
 };
+
+
 // game over
 const showGameOver = () => {
   stopmoveSound();
@@ -477,7 +479,6 @@ const showGameOver = () => {
   board.style.display = "none";
    statsSection.style.display = "none";
   gameOverScreen.style.display = "flex";
-
 };
 
 const hideGameOver = () => {
@@ -485,6 +486,8 @@ const hideGameOver = () => {
   board.style.display = "block";
    statsSection.style.display = "flex";
 };
+
+
 
 // next wave
 const nextWave = () => {
@@ -497,6 +500,8 @@ const nextWave = () => {
     respawning = false;
   }, 1500);
 };
+
+
 
 // Game Loop
 const gameLoop = () => {
