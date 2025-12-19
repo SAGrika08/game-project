@@ -16,3 +16,14 @@ This game was built as part of a project requirement to create a browser-based g
 * The game ends when all lives are lost
 
 # Planning Materials
+
+# Technologies used 
+* JavaScript 
+* HTML 
+* CSS
+* Browser DOM manipulation 
+
+# Future enhancements 
+* Adding multiple waves and special enemy behaviors
+* Visual garden growth and bloom effects as progression feedback
+* Improved enemy movement patterns 
