@@ -19,6 +19,8 @@ This game was built as part of a project requirement to create a browser-based g
 
 # Attributions
 The following external assets were used in this project:
+* Sound effects: 
+* Image assets: 
 
 # Tech Stack
 * JavaScript 
